@@ -2,6 +2,7 @@ import _thread
 from modules.countdown.const.Values import Commands, responses,Responses, commands
 from modules.countdown.entities.E_Input import AMBIENT_NOISE
 import time
+import random
 
 class C_Control:
 	def __init__(self,mainGUI,sListener,sSpeaker,eInput,eWatch):
@@ -42,23 +43,28 @@ class C_Control:
 			inputValue=self.eInput.getValue()
 			if not inputValue:
 				continue
-			if inputValue.find(commands[Commands.GO]) != -1:
-    
-				self.sSpeaker.say(responses[Responses.WAIT_COUNTING])
-				count=3
-				while count:
-					self.sSpeaker.say(count)
-					count=count-1
-				
-				self.sSpeaker.say(responses[Responses.START_COUNTING])
-				count=self.eWatch.getTotalSecs()
-				self.startWorker(self.countDownGUIWorker)
-				while count:
-					time.sleep(1)
-					count=count-1
-				self.sSpeaker.say(responses[Responses.TIME_UP])			
-   
-				self.eInput.resetValue()
-				continue
-			if inputValue.find(AMBIENT_NOISE) != 0:
-				''''''
+
+			for i in range(0, len(commands[Commands.GO])):
+				if inputValue.find(commands[Commands.GO]) != -1:
+		
+					self.sSpeaker.say(responses[Responses.WAIT_COUNTING])
+					count=3
+					while count:
+						self.sSpeaker.say(count)
+						count=count-1
+					i = random.randint(0, len(responses[Responses.START_COUNTING]))
+					self.sSpeaker.say(responses[Responses.START_COUNTING][i])
+					
+					count=self.eWatch.getTotalSecs()
+					self.startWorker(self.countDownGUIWorker)
+					while count:
+						time.sleep(1)
+						count=count-1
+						if count<=5: self.sSpeaker.say(count)
+					i = random.randint(0, len(responses[Responses.TIME_UP]))
+					self.sSpeaker.say(responses[Responses.TIME_UP][i])			
+	
+					self.eInput.resetValue()
+					continue
+				if inputValue.find(AMBIENT_NOISE) != 0:
+					''''''
