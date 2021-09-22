@@ -2,7 +2,6 @@ import time
 from tkinter import *
 import tkinter.font as font
 
-from modules.countdown.entities.E_Watch import E_Watch
 
 class B_GUI:
 	def __init__(self, root,frame,eWatch):
@@ -61,12 +60,19 @@ class B_GUI:
 			hours=0
 			if mins >60:
 				hours, mins = divmod(mins, 60)
-   
+
+			hours=self.add0(hours) if hours < 10 else hours
+			mins=self.add0(mins) if mins < 10 else mins
+			secs = self.add0(secs) if secs < 10 else secs
 			self.setTime(hours,mins,secs)
 		
 			self.root.update()
 			time.sleep(1)
 			totalSecs -= 1
+   
+	def add0(self,v):
+		return f"0{v}"
+        
    
 	
 
