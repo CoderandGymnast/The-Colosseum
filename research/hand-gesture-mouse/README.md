@@ -1,0 +1,3 @@
+- Kéo xuống toàn màn hình: 10 đơn vị. 
+- Kéo ngang chuyển tabs. 
+- Giờ hai ngón: Deactivate. 

@@ -1,4 +1,10 @@
 pyttsx3
 SpeechRecognition
 Pillow
+PyAudio
+opencv-python
+mediapipe
+autopy
 
+
+	
