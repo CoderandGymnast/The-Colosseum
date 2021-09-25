@@ -1,6 +1,6 @@
 AMBIENT_NOISE="0"
 
-class E_Input:
+class E_InputVoice:
     def __init__(self):
         self._value=None
         
