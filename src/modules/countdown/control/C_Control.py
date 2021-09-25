@@ -1,4 +1,5 @@
 import _thread
+from modules.countdown.entities.E_Watch import E_Watch
 from modules.countdown.const.Values import Commands, responses,Responses, commands
 from modules.countdown.entities.E_Input import AMBIENT_NOISE
 import time
@@ -60,7 +61,7 @@ class C_Control:
 					while count:
 						time.sleep(1)
 						count=count-1
-						if count == 7: self.sSpeaker.say("5 seconds left")
+						if count == 6: self.sSpeaker.say("5 seconds left")
 					i = random.randint(0, len(responses[Responses.TIME_UP])-1)
 					self.sSpeaker.say(responses[Responses.TIME_UP][i])			
 	

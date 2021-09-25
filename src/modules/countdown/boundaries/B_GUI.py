@@ -1,7 +1,6 @@
 import time
 from tkinter import *
 import tkinter.font as font
-
 from modules.countdown.entities.E_Watch import E_Watch
 
 class B_GUI:

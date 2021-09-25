@@ -30,7 +30,7 @@ class S_Speaker:
         while count:
             time.sleep(1)
             count=count-1
-            if count==7: self.say("5 seconds left!")
+            if count==6: self.say("5 seconds left!")
         
         i = random.randint(0, len(responses[Responses.TIME_UP]) - 1)
         self.say(responses[Responses.TIME_UP][i])
