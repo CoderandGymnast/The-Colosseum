@@ -45,14 +45,14 @@ class C_Control:
 				continue
 
 			for i in range(0, len(commands[Commands.GO])):
-				if inputValue.find(commands[Commands.GO]) != -1:
+				if inputValue.find(commands[Commands.GO][i]) != -1:
 		
 					self.sSpeaker.say(responses[Responses.WAIT_COUNTING])
 					count=3
 					while count:
 						self.sSpeaker.say(count)
 						count=count-1
-					i = random.randint(0, len(responses[Responses.START_COUNTING]))
+					i = random.randint(0, len(responses[Responses.START_COUNTING])-1)
 					self.sSpeaker.say(responses[Responses.START_COUNTING][i])
 					
 					count=self.eWatch.getTotalSecs()
@@ -60,8 +60,8 @@ class C_Control:
 					while count:
 						time.sleep(1)
 						count=count-1
-						if count<=5: self.sSpeaker.say(count)
-					i = random.randint(0, len(responses[Responses.TIME_UP]))
+						if count == 7: self.sSpeaker.say("5 seconds left")
+					i = random.randint(0, len(responses[Responses.TIME_UP])-1)
 					self.sSpeaker.say(responses[Responses.TIME_UP][i])			
 	
 					self.eInput.resetValue()

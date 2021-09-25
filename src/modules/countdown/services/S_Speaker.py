@@ -23,15 +23,14 @@ class S_Speaker:
             # time.sleep(0.5)
             self.say(count)
             count=count-1
-        i = random.randint(0, len(responses[Responses.START_COUNTING]))
+        i = random.randint(0, len(responses[Responses.START_COUNTING]) - 1)
         self.say(responses[Responses.START_COUNTING][i])
         
         count=totalTime
         while count:
             time.sleep(1)
-            # self.say(count)
             count=count-1
-            if count<=5: self.say(count)
+            if count==7: self.say("5 seconds left!")
         
-        i = random.randint(0, len(responses[Responses.TIME_UP]))
+        i = random.randint(0, len(responses[Responses.TIME_UP]) - 1)
         self.say(responses[Responses.TIME_UP][i])
