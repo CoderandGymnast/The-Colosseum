@@ -16,8 +16,35 @@ class B_GUI:
 		self.mins=self.eWatch.getMins()
 		self.secs=self.eWatch.getSecs()
 
-		self.init()	
+		self.init()
+
+	def setHours(self,value):
+		self.hours.set(value)
+		self.eHours.focus()
+		self.root.update()
  
+	def setMins(self,value):
+		self.mins.set(value)
+		self.eMins.focus()
+		self.root.update()
+  
+	def setSecs(self,value):
+		self.secs.set(value)
+		self.eSecs.focus()
+		self.root.update()
+  
+	def focusHours(self):
+		self.eHours.focus()
+		self.root.update()
+  
+	def focusMins(self):
+		self.eMins.focus()
+		self.root.update()
+  
+	def focusSecs(self):
+		self.eSecs.focus()
+		self.root.update()
+  
 	def init(self):
 		self.initUIWidgets()
   
@@ -27,20 +54,20 @@ class B_GUI:
 			self.secs.set(secs)
   
 	def initUIWidgets(self):
-		ehours=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.hours)
-		ehours.place(x=30 ,y=35)
+		self.eHours=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.hours,insertbackground="red")
+		self.eHours.place(x=30 ,y=35)
 
 		lColon=Label(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,text=":")
 		lColon.place(x=100 ,y=35)
 
-		eMins=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.mins)
-		eMins.place(x=130 ,y=35)
+		self.eMins=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.mins,insertbackground="red")
+		self.eMins.place(x=130 ,y=35)
 
 		lColon=Label(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,text=":")
 		lColon.place(x=200 ,y=35)
 
-		eSecs=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.secs)
-		eSecs.place(x=230,y=35)
+		self.eSecs=Entry(self.frame, font=self.eFont,bg=self.background,fg=self.textColor,bd=0,width=2,textvariable=self.secs,insertbackground="red")
+		self.eSecs.place(x=230,y=35)
 		
 		lHours=Label(self.frame, font=self.lFont,bg=self.background,fg=self.textColor,text="HOURS")
 		lHours.place(x=(320-260)/2 + 5 ,y=110)

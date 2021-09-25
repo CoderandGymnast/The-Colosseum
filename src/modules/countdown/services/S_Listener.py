@@ -1,4 +1,4 @@
-from modules.countdown.entities.E_Input import E_Input
+from modules.countdown.entities.E_InputVoice import E_InputVoice
 from speech_recognition import UnknownValueError, RequestError
 import speech_recognition as sr
 
