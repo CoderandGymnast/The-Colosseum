@@ -2,7 +2,6 @@ import time
 from tkinter import *
 import tkinter.font as font
 
-
 class B_GUI:
 	def __init__(self, root,frame,eWatch):
 		self.eWatch=eWatch

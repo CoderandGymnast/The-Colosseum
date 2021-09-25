@@ -1,7 +1,8 @@
+from modules.countdown.control.C_Control import C_Control
 from os import umask
 from tkinter import StringVar
 from modules.countdown.entities.E_Watch import E_Watch
-
+from ..control.C_Control import *
 
 class E_CountdownWatch(E_Watch):
 	def __init__(self, status):
