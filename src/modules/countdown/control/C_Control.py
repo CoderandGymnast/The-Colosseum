@@ -46,7 +46,6 @@ class C_Control:
 		#---
      
 		while 1:
-			print(self.eInputHand.getMagnitude())
 			time.sleep(0.001)
 			
    			# [NOTE]: Hand Gesture.
@@ -102,7 +101,10 @@ class C_Control:
 					i = random.randint(0, len(responses[Responses.TIME_UP])-1)
 					self.sSpeaker.say(responses[Responses.TIME_UP][i])			
 	
-					self.eInput.resetValue()
+					self.eInputVoice.resetValue()
 					continue
 				if inputValue.find(AMBIENT_NOISE) != 0:
 					''''''
+
+	def watchingWorker(self,name):
+		self.sWatcher.process()
